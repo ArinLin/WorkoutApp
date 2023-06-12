@@ -43,10 +43,10 @@ final class TabBarController: UITabBarController {
         
         // 2. необходимо добавить в таббар наши 4 элемента
         // создадим пока по дефолту
-        let overviewController = UIViewController()
-        let sessionController = UIViewController()
-        let progressController = UIViewController()
-        let settingsController = UIViewController()
+        let overviewController = OverviewController()
+        let sessionController = SessionController()
+        let progressController = ProgressController()
+        let settingsController = SettingsController()
         
         // 3. теперь нужно создать навигейшн контроллеры
 // это с дефолтным значением, впоследствии UINavigationController заменим на наш созданный NavBarController        let overviewNavigation = UINavigationController(rootViewController: overviewController)
