@@ -22,6 +22,7 @@ final class NavBarController: UINavigationController {
             .foregroundColor: UIColor(named: "inactive") ?? .darkGray,
             .font: Resourses.Fonts.helveticaRegular(with: 17)
         ]
+        navigationBar.addBottomBorder(wuth: UIColor(named: "inactive") ?? .darkGray, height: 1)
     }
     
 }
