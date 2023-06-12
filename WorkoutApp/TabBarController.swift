@@ -18,7 +18,7 @@ enum Tabs: Int {
 
 
 final class TabBarController: UITabBarController {
-    
+    // 6. Cоздаем для отображения
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
@@ -29,7 +29,7 @@ final class TabBarController: UITabBarController {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // зададим внешний вид таба -- это будет функция приватной конфигурации
+    // 1. зададим внешний вид таба -- это будет функция приватной конфигурации
     private func config() {
         // установим таббару цвет
         tabBar.tintColor = UIColor(named: "active")
@@ -41,26 +41,27 @@ final class TabBarController: UITabBarController {
         tabBar.layer.borderWidth = 1
         tabBar.layer.masksToBounds = true
         
-        // необходимо добавить в таббар наши 4 элемента
+        // 2. необходимо добавить в таббар наши 4 элемента
         // создадим пока по дефолту
         let overviewController = UIViewController()
         let sessionController = UIViewController()
         let progressController = UIViewController()
         let settingsController = UIViewController()
         
-        // теперь нужно создать навигейшн контроллеры
-        let overviewNavigation = UINavigationController(rootViewController: overviewController)
-        let sessionNavigation = UINavigationController(rootViewController: sessionController)
-        let progressNavigation = UINavigationController(rootViewController: progressController)
-        let settingsNavigation = UINavigationController(rootViewController: settingsController)
+        // 3. теперь нужно создать навигейшн контроллеры
+// это с дефолтным значением, впоследствии UINavigationController заменим на наш созданный NavBarController        let overviewNavigation = UINavigationController(rootViewController: overviewController)
+        let overviewNavigation = NavBarController(rootViewController: overviewController)
+        let sessionNavigation = NavBarController(rootViewController: sessionController)
+        let progressNavigation = NavBarController(rootViewController: progressController)
+        let settingsNavigation = NavBarController(rootViewController: settingsController)
         
-        // теперь нужно создать элементы таббара для каждого навигейшн
+        // 4. теперь нужно создать элементы таббара для каждого навигейшн
         overviewNavigation.tabBarItem = UITabBarItem(title: Resourses.Strings.TabBar.overview, image: Resourses.Images.TabBar.overview, tag: Tabs.overview.rawValue)
         sessionNavigation.tabBarItem = UITabBarItem(title: Resourses.Strings.TabBar.session, image: Resourses.Images.TabBar.session, tag: Tabs.session.rawValue)
         progressNavigation.tabBarItem = UITabBarItem(title: Resourses.Strings.TabBar.progress, image: Resourses.Images.TabBar.progress, tag: Tabs.progress.rawValue)
         settingsNavigation.tabBarItem = UITabBarItem(title: Resourses.Strings.TabBar.settings, image: Resourses.Images.TabBar.settings, tag: Tabs.settings.rawValue)
         
-        //мы добавили наши элементы, теперь их нужно сложить в setViewControllers
+        //5. мы добавили наши элементы, теперь их нужно сложить в setViewControllers
         setViewControllers([
             overviewNavigation,
             sessionNavigation,

@@ -7,9 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		844B70FF2A37459200D31E38 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B70FE2A37459200D31E38 /* NavBarController.swift */; };
+		844B71012A375B6F00D31E38 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B71002A375B6F00D31E38 /* BaseController.swift */; };
+		844B71032A37619700D31E38 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B71022A37619700D31E38 /* UIView+Ext.swift */; };
 		844D70F42A367C52005CF814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D70F32A367C52005CF814 /* AppDelegate.swift */; };
 		844D70F62A367C52005CF814 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D70F52A367C52005CF814 /* SceneDelegate.swift */; };
-		844D70F82A367C52005CF814 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D70F72A367C52005CF814 /* StartViewController.swift */; };
+		844D70F82A367C52005CF814 /* overviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D70F72A367C52005CF814 /* overviewController.swift */; };
 		844D70FD2A367C53005CF814 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 844D70FC2A367C53005CF814 /* Assets.xcassets */; };
 		844D71002A367C53005CF814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D70FE2A367C53005CF814 /* LaunchScreen.storyboard */; };
 		844D71092A36818B005CF814 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D71082A36818B005CF814 /* TabBarController.swift */; };
@@ -17,10 +20,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		844B70FE2A37459200D31E38 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
+		844B71002A375B6F00D31E38 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
+		844B71022A37619700D31E38 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		844D70F02A367C52005CF814 /* WorkoutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844D70F32A367C52005CF814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844D70F52A367C52005CF814 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		844D70F72A367C52005CF814 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		844D70F72A367C52005CF814 /* overviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = overviewController.swift; sourceTree = "<group>"; };
 		844D70FC2A367C53005CF814 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		844D70FF2A367C53005CF814 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		844D71012A367C53005CF814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -60,8 +66,10 @@
 			children = (
 				844D710A2A3696AC005CF814 /* Helpers */,
 				844D71072A367D74005CF814 /* Application */,
-				844D70F72A367C52005CF814 /* StartViewController.swift */,
+				844D70F72A367C52005CF814 /* overviewController.swift */,
 				844D71082A36818B005CF814 /* TabBarController.swift */,
+				844B70FE2A37459200D31E38 /* NavBarController.swift */,
+				844B71002A375B6F00D31E38 /* BaseController.swift */,
 				844D70FC2A367C53005CF814 /* Assets.xcassets */,
 				844D70FE2A367C53005CF814 /* LaunchScreen.storyboard */,
 				844D71012A367C53005CF814 /* Info.plist */,
@@ -90,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				844D710C2A3696D3005CF814 /* Resourses.swift */,
+				844B71022A37619700D31E38 /* UIView+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -164,7 +173,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				844D70F82A367C52005CF814 /* StartViewController.swift in Sources */,
+				844B71032A37619700D31E38 /* UIView+Ext.swift in Sources */,
+				844D70F82A367C52005CF814 /* overviewController.swift in Sources */,
+				844B70FF2A37459200D31E38 /* NavBarController.swift in Sources */,
+				844B71012A375B6F00D31E38 /* BaseController.swift in Sources */,
 				844D71092A36818B005CF814 /* TabBarController.swift in Sources */,
 				844D70F42A367C52005CF814 /* AppDelegate.swift in Sources */,
 				844D710D2A3696D3005CF814 /* Resourses.swift in Sources */,

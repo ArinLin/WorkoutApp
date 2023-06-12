@@ -6,8 +6,8 @@
 //
 
 import UIKit
-
-class StartViewController: UIViewController {
+// создаем дефолтный котнроллер
+class overviewController: BaseController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

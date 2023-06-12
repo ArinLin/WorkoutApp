@@ -17,6 +17,12 @@ enum Resourses {
         }
     }
     
+    enum Fonts {
+        static func helveticaRegular(with size: CGFloat) -> UIFont {
+            UIFont(name: "Helvetica", size: size) ?? UIFont()
+        }
+    }
+    
     enum Images {
         enum TabBar {
             static var overview = UIImage(named: "overview")?.resized(to: CGSize(width: 22, height: 22))
