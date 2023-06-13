@@ -9,6 +9,7 @@ import UIKit
 
 class OverviewController: BaseController {
     
+    private let navBar = OverviewNavBar()
     private let allWarkoutsButton = SecondaryButton()
 
     override func viewDidLoad() {
@@ -26,28 +27,28 @@ class OverviewController: BaseController {
 extension OverviewController {
     override func addViews() {
         super.addViews()
+        view.addSubview(navBar)
         view.addSubview(allWarkoutsButton)
     }
     override func configure() {
         super.configure()
-        allWarkoutsButton.translatesAutoresizingMaskIntoConstraints = false
-        allWarkoutsButton.setTitle(title: Resourses.Overview.allWorkoutsButton)
-        allWarkoutsButton.addTarget(self, action: #selector(allWorkoutButtonAction), for: .touchUpInside)
+        
+        navBar.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func layoutViews() {
         super.layoutViews()
         NSLayoutConstraint.activate([
-            allWarkoutsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            allWarkoutsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            allWarkoutsButton.heightAnchor.constraint(equalToConstant: 28),
-            allWarkoutsButton.widthAnchor.constraint(equalToConstant: 130)
+            navBar.topAnchor.constraint(equalTo: view.topAnchor),
+            navBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            navBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            navBar.heightAnchor.constraint(equalToConstant: 113),
+            
+//            allWarkoutsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+//            allWarkoutsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+//            allWarkoutsButton.heightAnchor.constraint(equalToConstant: 28),
+//            allWarkoutsButton.widthAnchor.constraint(equalToConstant: 130)
         ])
     }
 }
 
-@objc extension OverviewController {
-    func allWorkoutButtonAction() {
-        print("All workouts button tapped")
-    }
-}

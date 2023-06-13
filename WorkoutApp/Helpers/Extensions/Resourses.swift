@@ -36,6 +36,7 @@ enum Resourses {
         }
         enum Common {
             static var downArrow = UIImage(systemName: "chevron.down")?.resized(to: CGSize(width: 20, height: 25))
+            static var circlePlus = UIImage(systemName: "plus.circle.fill")?.resized(to: CGSize(width: 40, height: 40))?.withTintColor(UIColor(named: "active") ?? .systemGray)
         }
     }
 }
