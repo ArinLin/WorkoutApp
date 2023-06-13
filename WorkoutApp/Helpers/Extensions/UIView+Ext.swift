@@ -28,4 +28,27 @@ extension UIView {
         // 5. Добавляем наше сабвью во вью
         addSubview(separator)
     }
+    
+    // Создадим эффект "моргания" кнопки (как и системной), чтобы юзер понимал, что кнопка была нажата
+    func makeSystem(button: UIButton) {
+        button.addTarget(self, action: #selector(handleIn), for: [
+            .touchDown,
+            .touchDragInside
+        ])
+        button.addTarget(self, action: #selector(handleOut), for: [
+            .touchDragOutside,
+            .touchUpInside,
+            .touchUpOutside,
+            .touchDragExit,
+            .touchCancel
+        ])
+    }
+    // задаем анимацию для UIView
+    @objc func handleIn() {
+        UIView.animate(withDuration: 0.15) {self.alpha = 0.55} // берем элемент и делаем его на 55% прозрачнее -- это вся анимация
+    }
+    
+    @objc func handleOut() {
+        UIView.animate(withDuration: 0.15) {self.alpha = 1} // в этой анимации возвращаем состояние в исходное, ставим self.alpha = 1
+    }
 }

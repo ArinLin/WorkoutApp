@@ -32,6 +32,7 @@ extension OverviewController {
         super.configure()
         allWarkoutsButton.translatesAutoresizingMaskIntoConstraints = false
         allWarkoutsButton.setTitle(title: Resourses.Overview.allWorkoutsButton)
+        allWarkoutsButton.addTarget(self, action: #selector(allWorkoutButtonAction), for: .touchUpInside)
     }
     
     override func layoutViews() {
@@ -42,5 +43,11 @@ extension OverviewController {
             allWarkoutsButton.heightAnchor.constraint(equalToConstant: 28),
             allWarkoutsButton.widthAnchor.constraint(equalToConstant: 130)
         ])
+    }
+}
+
+@objc extension OverviewController {
+    func allWorkoutButtonAction() {
+        print("All workouts button tapped")
     }
 }

@@ -51,6 +51,7 @@ private extension SecondaryButton {
     func configure() {
         backgroundColor = UIColor(named: "bgSky")
         layer.cornerRadius = 14
+        makeSystem(button: self) // устанавливаем заданную в UIView+Ext анимацию для кнопки
         
         rightButtonLabel.translatesAutoresizingMaskIntoConstraints = false
         rightButtonLabel.textColor = UIColor(named: "active")
