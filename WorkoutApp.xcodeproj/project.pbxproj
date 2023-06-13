@@ -13,6 +13,7 @@
 		844B710B2A37ACE800D31E38 /* SessionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B710A2A37ACE800D31E38 /* SessionController.swift */; };
 		844B710D2A37ACF900D31E38 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B710C2A37ACF900D31E38 /* SettingsController.swift */; };
 		844B710F2A37AD0900D31E38 /* ProgressController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B710E2A37AD0900D31E38 /* ProgressController.swift */; };
+		844B71122A37BB7400D31E38 /* SecondaryButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B71112A37BB7400D31E38 /* SecondaryButton.swift */; };
 		844D70F42A367C52005CF814 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D70F32A367C52005CF814 /* AppDelegate.swift */; };
 		844D70F62A367C52005CF814 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D70F52A367C52005CF814 /* SceneDelegate.swift */; };
 		844D70F82A367C52005CF814 /* OverviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D70F72A367C52005CF814 /* OverviewController.swift */; };
@@ -29,6 +30,7 @@
 		844B710A2A37ACE800D31E38 /* SessionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionController.swift; sourceTree = "<group>"; };
 		844B710C2A37ACF900D31E38 /* SettingsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
 		844B710E2A37AD0900D31E38 /* ProgressController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressController.swift; sourceTree = "<group>"; };
+		844B71112A37BB7400D31E38 /* SecondaryButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondaryButton.swift; sourceTree = "<group>"; };
 		844D70F02A367C52005CF814 /* WorkoutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorkoutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		844D70F32A367C52005CF814 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		844D70F52A367C52005CF814 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		844B71062A37ACAE00D31E38 /* Overview */ = {
 			isa = PBXGroup;
 			children = (
+				844B71102A37BB5200D31E38 /* Views */,
 				844D70F72A367C52005CF814 /* OverviewController.swift */,
 			);
 			path = Overview;
@@ -103,6 +106,14 @@
 				844B710E2A37AD0900D31E38 /* ProgressController.swift */,
 			);
 			path = Progress;
+			sourceTree = "<group>";
+		};
+		844B71102A37BB5200D31E38 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				844B71112A37BB7400D31E38 /* SecondaryButton.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		844D70E72A367C52005CF814 = {
@@ -230,6 +241,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				844B71122A37BB7400D31E38 /* SecondaryButton.swift in Sources */,
 				844B71032A37619700D31E38 /* UIView+Ext.swift in Sources */,
 				844B710B2A37ACE800D31E38 /* SessionController.swift in Sources */,
 				844D70F82A367C52005CF814 /* OverviewController.swift in Sources */,

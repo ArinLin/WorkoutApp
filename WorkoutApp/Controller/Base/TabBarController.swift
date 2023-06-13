@@ -21,7 +21,7 @@ final class TabBarController: UITabBarController {
     // 6. Cоздаем для отображения
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
+
         config()
     }
     

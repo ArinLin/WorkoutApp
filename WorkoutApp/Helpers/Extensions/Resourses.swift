@@ -17,6 +17,10 @@ enum Resourses {
         }
     }
     
+    enum Overview {
+        static var allWorkoutsButton = "All workouts"
+    }
+    
     enum Fonts {
         static func helveticaRegular(with size: CGFloat) -> UIFont {
             UIFont(name: "Helvetica", size: size) ?? UIFont()
@@ -29,6 +33,9 @@ enum Resourses {
             static var progress = UIImage(named: "progress")?.resized(to: CGSize(width: 22, height: 22))
             static var settings = UIImage(named: "settings")?.resized(to: CGSize(width: 22, height: 22))
             static var session = UIImage(named: "session")?.resized(to: CGSize(width: 22, height: 22))
+        }
+        enum Common {
+            static var downArrow = UIImage(systemName: "arrow.down")
         }
     }
 }
