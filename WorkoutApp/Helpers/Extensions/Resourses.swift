@@ -35,7 +35,7 @@ enum Resourses {
             static var session = UIImage(named: "session")?.resized(to: CGSize(width: 22, height: 22))
         }
         enum Common {
-            static var downArrow = UIImage(systemName: "arrow.down")
+            static var downArrow = UIImage(systemName: "chevron.down")?.resized(to: CGSize(width: 20, height: 25))
         }
     }
 }

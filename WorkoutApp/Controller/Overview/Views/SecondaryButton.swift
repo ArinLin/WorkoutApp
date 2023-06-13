@@ -15,12 +15,12 @@ final class SecondaryButton: UIButton {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        func addViews() {}
-        func layoutViews() {}
-        func configure() {}
+        addViews() 
+        layoutViews()
+        configure()
     }
     
-    // при переносе вбю на контроллер, мы не указываем текст для лейбла. Необходимо здесь сделать метод, который будет добавлять наш rightButtonLabel к rightButtonIcon
+    // при переносе вью на контроллер, мы не указываем текст для лейбла. Необходимо здесь сделать метод, который будет добавлять наш rightButtonLabel как тайтл
     func setTitle(title: String) {
         rightButtonLabel.text = title
     }
