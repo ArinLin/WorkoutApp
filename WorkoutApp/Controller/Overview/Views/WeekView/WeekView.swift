@@ -47,10 +47,11 @@ extension WeekView {
         
         
         // перебираем массив строк weekdays и каждый элемент засовываем в weekStack
-        weekdays.enumerated().forEach { indx, dataName in
+        weekdays.enumerated().forEach { index, dataName in
             let view = WeekDayView()
-            view.makeData(with: indx, name: dataName)
+            view.makeData(with: index, name: dataName)
             weekStack.addArrangedSubview(view)
         }
+
     }
 }

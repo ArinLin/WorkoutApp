@@ -44,7 +44,7 @@ private extension SecondaryButton {
             rightButtonIcon.widthAnchor.constraint(equalToConstant: 10),
             
             rightButtonLabel.centerYAnchor.constraint(equalTo: centerYAnchor),
-            rightButtonLabel.trailingAnchor.constraint(equalTo: rightButtonIcon.leadingAnchor),
+//            rightButtonLabel.trailingAnchor.constraint(equalTo: rightButtonIcon.leadingAnchor),
             rightButtonLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10)
         ])
     }

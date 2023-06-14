@@ -13,17 +13,34 @@ extension WeekView {
         private let weekName = UILabel()
         private let dateNumber = UILabel()
         private let dataStack = UIStackView()
-//      для создания и заполнения даты. Входящие параметры: index дня недели, который у нас отрисовывается и название дня недели, которое мы храним в weekdays
+//MARK: Мой код для создания и заполнения даты. Входящие параметры: index дня недели, который у нас отрисовывается и название дня недели, которое мы храним в weekdays
+//        func makeData(with index: Int, name: String) {
+//            // определяем текущий день
+//            let starOfWeek = Date().startOfWeek
+//            let currentrDay = starOfWeek.agoForward(to: index)
+//            let day = Calendar.current.component(.day, from: currentrDay)
+//
+//            weekName.text = name.uppercased()
+//            dateNumber.text = "\(day)"
+//
+//        }
+        // 2 функции ниже брутфорса -------------------------------------------------
+//        func makeData(with index: Int, name: String) {
+//                    let startOfWeek = Date().startOfWeek
+//                    let currentDate = startOfWeek.addingTimeInterval(Double(index) * 24 * 60 * 60)
+//                    let day = Calendar.current.component(.day, from: currentDate)
+//
+//                    weekName.text = name.uppercased()
+//                    dateNumber.text = "\(day)"
+//                }
         func makeData(with index: Int, name: String) {
-            // определяем текущий день
-            let startOfWeek = Date().startOfWeek
-            let currentDay = startOfWeek.agoForward(to: index)
-            let day = Calendar.current.component(.day, from: currentDay)
-            
-            weekName.text = name.uppercased()
-            dateNumber.text = "\(day)"
-            
-        }
+                    let startOfWeek = Date().startOfWeek
+                    guard let currentDate = Calendar.current.date(byAdding: .day, value: index + 1, to: startOfWeek) else { return }
+                    let day = Calendar.current.component(.day, from: currentDate)
+                    
+                    weekName.text = name.uppercased()
+                    dateNumber.text = "\(day)"
+                }
     }
 }
 
