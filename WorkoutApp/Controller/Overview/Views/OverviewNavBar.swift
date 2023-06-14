@@ -12,6 +12,8 @@ final class OverviewNavBar: BaseView {
     private let titleLable = UILabel()
     private let allWarkoutsButton = SecondaryButton()
     private let addButton = UIButton()
+    // тестовый вариант
+    private let weekView = WeekView()
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -33,6 +35,7 @@ extension OverviewNavBar {
         addSubview(titleLable)
         addSubview(allWarkoutsButton)
         addSubview(addButton)
+        addSubview(weekView)
     }
     
     override func layoutViews() {
@@ -44,16 +47,24 @@ extension OverviewNavBar {
             addButton.widthAnchor.constraint(equalToConstant: 28),
             
             allWarkoutsButton.topAnchor.constraint(equalTo: addButton.topAnchor),
-            allWarkoutsButton.trailingAnchor.constraint(equalTo: addButton.leadingAnchor),
+            allWarkoutsButton.trailingAnchor.constraint(equalTo: addButton.leadingAnchor, constant: -15),
             allWarkoutsButton.heightAnchor.constraint(equalToConstant: 28),
             allWarkoutsButton.widthAnchor.constraint(equalToConstant: 130),
             
+            titleLable.centerYAnchor.constraint(equalTo: allWarkoutsButton.centerYAnchor),
+            titleLable.trailingAnchor.constraint(equalTo: allWarkoutsButton.leadingAnchor),
+            titleLable.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
             
+            weekView.topAnchor.constraint(equalTo: allWarkoutsButton.bottomAnchor, constant: 15),
+            weekView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
+            weekView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
+            weekView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -15),
+            weekView.heightAnchor.constraint(equalToConstant: 47)
         ])
     }
     
-    override func configure() {
-        super.configure()
+    override func configureViews() {
+        super.configureViews()
         backgroundColor = .white
         
         titleLable.translatesAutoresizingMaskIntoConstraints = false
@@ -68,6 +79,8 @@ extension OverviewNavBar {
         addButton.translatesAutoresizingMaskIntoConstraints = false
         addButton.setImage(Resourses.Images.Common.circlePlus, for: .normal)
 //        addButton.addTarget(self, action: #selector(addButtonAction), for: .touchUpInside)
+        
+        weekView.translatesAutoresizingMaskIntoConstraints = false
     }
 }
 

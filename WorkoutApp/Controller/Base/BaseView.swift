@@ -12,7 +12,7 @@ class BaseView: UIView {
         super.init(frame: frame)
         addView() 
         layoutViews()
-        configure()
+        configureViews()
     }
     
     required init?(coder: NSCoder) {
@@ -29,7 +29,7 @@ class BaseView: UIView {
         
     }
     
-    func configure() {
+    func configureViews() {
         
     }
 }

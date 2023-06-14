@@ -42,7 +42,7 @@ extension OverviewController {
             navBar.topAnchor.constraint(equalTo: view.topAnchor),
             navBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             navBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            navBar.heightAnchor.constraint(equalToConstant: 113),
+//            navBar.heightAnchor.constraint(equalToConstant: 113),
             
 //            allWarkoutsButton.centerYAnchor.constraint(equalTo: view.centerYAnchor),
 //            allWarkoutsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),

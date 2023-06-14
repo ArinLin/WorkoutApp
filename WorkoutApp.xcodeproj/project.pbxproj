@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		843A9E3B2A38D79400BA954F /* OverviewNavBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A9E3A2A38D79400BA954F /* OverviewNavBar.swift */; };
 		843A9E3D2A38D7F100BA954F /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A9E3C2A38D7F100BA954F /* BaseView.swift */; };
+		843A9E402A39C20200BA954F /* WeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A9E3F2A39C20200BA954F /* WeekView.swift */; };
+		843A9E422A39C53400BA954F /* WeekDayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A9E412A39C53400BA954F /* WeekDayView.swift */; };
+		843A9E442A39D52A00BA954F /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A9E432A39D52A00BA954F /* Date+Ext.swift */; };
 		844B70FF2A37459200D31E38 /* NavBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B70FE2A37459200D31E38 /* NavBarController.swift */; };
 		844B71012A375B6F00D31E38 /* BaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B71002A375B6F00D31E38 /* BaseController.swift */; };
 		844B71032A37619700D31E38 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844B71022A37619700D31E38 /* UIView+Ext.swift */; };
@@ -28,6 +31,9 @@
 /* Begin PBXFileReference section */
 		843A9E3A2A38D79400BA954F /* OverviewNavBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OverviewNavBar.swift; sourceTree = "<group>"; };
 		843A9E3C2A38D7F100BA954F /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		843A9E3F2A39C20200BA954F /* WeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekView.swift; sourceTree = "<group>"; };
+		843A9E412A39C53400BA954F /* WeekDayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekDayView.swift; sourceTree = "<group>"; };
+		843A9E432A39D52A00BA954F /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		844B70FE2A37459200D31E38 /* NavBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavBarController.swift; sourceTree = "<group>"; };
 		844B71002A375B6F00D31E38 /* BaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseController.swift; sourceTree = "<group>"; };
 		844B71022A37619700D31E38 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
@@ -57,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		843A9E3E2A39C1ED00BA954F /* WeekView */ = {
+			isa = PBXGroup;
+			children = (
+				843A9E3F2A39C20200BA954F /* WeekView.swift */,
+				843A9E412A39C53400BA954F /* WeekDayView.swift */,
+			);
+			path = WeekView;
+			sourceTree = "<group>";
+		};
 		844B71042A37AC3B00D31E38 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +131,7 @@
 		844B71102A37BB5200D31E38 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				843A9E3E2A39C1ED00BA954F /* WeekView */,
 				844B71112A37BB7400D31E38 /* SecondaryButton.swift */,
 				843A9E3A2A38D79400BA954F /* OverviewNavBar.swift */,
 			);
@@ -173,6 +189,7 @@
 			children = (
 				844D710C2A3696D3005CF814 /* Resourses.swift */,
 				844B71022A37619700D31E38 /* UIView+Ext.swift */,
+				843A9E432A39D52A00BA954F /* Date+Ext.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -248,11 +265,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				844B71122A37BB7400D31E38 /* SecondaryButton.swift in Sources */,
+				843A9E422A39C53400BA954F /* WeekDayView.swift in Sources */,
+				843A9E442A39D52A00BA954F /* Date+Ext.swift in Sources */,
 				844B71032A37619700D31E38 /* UIView+Ext.swift in Sources */,
 				844B710B2A37ACE800D31E38 /* SessionController.swift in Sources */,
 				844D70F82A367C52005CF814 /* OverviewController.swift in Sources */,
 				843A9E3B2A38D79400BA954F /* OverviewNavBar.swift in Sources */,
 				844B70FF2A37459200D31E38 /* NavBarController.swift in Sources */,
+				843A9E402A39C20200BA954F /* WeekView.swift in Sources */,
 				844B71012A375B6F00D31E38 /* BaseController.swift in Sources */,
 				844B710F2A37AD0900D31E38 /* ProgressController.swift in Sources */,
 				844D71092A36818B005CF814 /* TabBarController.swift in Sources */,
