@@ -34,13 +34,18 @@ extension WeekView {
 //                    dateNumber.text = "\(day)"
 //                }
         func makeData(with index: Int, name: String) {
-                    let startOfWeek = Date().startOfWeek
-                    guard let currentDate = Calendar.current.date(byAdding: .day, value: index + 1, to: startOfWeek) else { return }
-                    let day = Calendar.current.component(.day, from: currentDate)
-                    
-                    weekName.text = name.uppercased()
-                    dateNumber.text = "\(day)"
-                }
+            let startOfWeek = Date().startOfWeek
+            guard let currentDate = Calendar.current.date(byAdding: .day, value: index + 1, to: startOfWeek) else { return }
+            let day = Calendar.current.component(.day, from: currentDate)
+            // для подствечивания сегодняшней даты
+            let isTooday = currentDate.stripTime () == Date().stripTime()
+            backgroundColor = isTooday ? UIColor(named: "active") : UIColor(named: "bgSky")
+            
+            weekName.text = name.uppercased()
+            weekName.textColor = isTooday ? UIColor(named: "bgSky") : UIColor(named: "active")
+            dateNumber.text = "\(day)"
+            dateNumber.textColor = isTooday ? UIColor(named: "bgSky") : UIColor(named: "active")
+        }
     }
 }
 

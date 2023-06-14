@@ -18,6 +18,11 @@ extension Date {
         calendar.dateInterval(of: .weekOfYear, start: &startOfWeek, interval: &interval, for: self)
         return startOfWeek
     }
+    
+    func stripTime() -> Date {
+        let components = calendar.dateComponents([.year, .month, .day], from: self)
+        return calendar.date (from: components) ?? self
+    }
 //    var startOfWeek: Date {
 //            let components = calendar.dateComponents([.yearForWeekOfYear, .weekOfYear], from: self)
 //            guard let firstDay = calendar.date(from: components) else { return self }
