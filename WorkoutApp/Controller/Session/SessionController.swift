@@ -8,6 +8,12 @@
 import UIKit
 
 class SessionController: BaseController {
+    // создаем таймер
+    private let timerView: BaseInfoView = {
+        let view = BaseInfoView(with: "Test")
+
+        return view
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,4 +34,28 @@ class SessionController: BaseController {
         print("Session NavBar right button tapped")
     }
     
+}
+
+extension SessionController {
+    override func addViews() {
+        super.addViews()
+        view.addSubview(timerView)
+    }
+    
+    override func layoutViews() {
+        super.layoutViews()
+        timerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate ([
+            timerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            timerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+            timerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            timerView.heightAnchor.constraint(equalToConstant: 300)
+        ])
+    }
+    
+    override func configure() {
+        super.configure()
+        
+    }
 }

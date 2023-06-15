@@ -9,7 +9,7 @@
 import UIKit
 
 // сразу определяем количество табов и задаем их в enum
-enum Tabs: Int {
+enum Tabs: Int, CaseIterable {
     case overview
     case session
     case progress
@@ -68,5 +68,14 @@ final class TabBarController: UITabBarController {
             progressNavigation,
             settingsNavigation
         ], animated: false)
+    }
+    // функция возвращает тот контроллер, который ассоциируется с табом
+    private func getController (for tab: Tabs) -> BaseController {
+        switch tab {
+        case .overview: return OverviewController()
+        case .session: return SessionController()
+        case .progress: return ProgressController()
+        case .settings: return SettingsController()
+        }
     }
 }

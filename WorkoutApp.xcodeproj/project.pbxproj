@@ -26,6 +26,7 @@
 		844D71002A367C53005CF814 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 844D70FE2A367C53005CF814 /* LaunchScreen.storyboard */; };
 		844D71092A36818B005CF814 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D71082A36818B005CF814 /* TabBarController.swift */; };
 		844D710D2A3696D3005CF814 /* Resourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D710C2A3696D3005CF814 /* Resourses.swift */; };
+		848C3CBD2A3B275A003DEF82 /* BaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848C3CBC2A3B275A003DEF82 /* BaseInfoView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		844D71012A367C53005CF814 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		844D71082A36818B005CF814 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		844D710C2A3696D3005CF814 /* Resourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resourses.swift; sourceTree = "<group>"; };
+		848C3CBC2A3B275A003DEF82 /* BaseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +93,7 @@
 				844B70FE2A37459200D31E38 /* NavBarController.swift */,
 				844B71002A375B6F00D31E38 /* BaseController.swift */,
 				843A9E3C2A38D7F100BA954F /* BaseView.swift */,
+				848C3CBC2A3B275A003DEF82 /* BaseInfoView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				844B71122A37BB7400D31E38 /* SecondaryButton.swift in Sources */,
+				848C3CBD2A3B275A003DEF82 /* BaseInfoView.swift in Sources */,
 				843A9E422A39C53400BA954F /* WeekDayView.swift in Sources */,
 				843A9E442A39D52A00BA954F /* Date+Ext.swift in Sources */,
 				844B71032A37619700D31E38 /* UIView+Ext.swift in Sources */,

@@ -15,12 +15,12 @@ final class WeekView: BaseView {
 }
 
 extension WeekView {
-    override func addView() {
-        super.addView()
+    override func setupViews() {
+        super.setupViews()
         addSubview(weekStack)
     }
-    override func configureViews() {
-        super.configureViews()
+    override func configureAppearance() {
+        super.configureAppearance()
         weekStack.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -31,8 +31,8 @@ extension WeekView {
         ])
     }
     
-    override func layoutViews() {
-        super.layoutViews()
+    override func constraintViews() {
+        super.constraintViews()
         
         weekStack.spacing = 7
         // устанавливаем насколько одинаково элементы должны располагаться и заполнять пространство

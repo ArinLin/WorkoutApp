@@ -30,16 +30,16 @@ final class OverviewNavBar: BaseView {
 }
 
 extension OverviewNavBar {
-    override func addView() {
-        super.addView()
+    override func setupViews() {
+        super.setupViews()
         addSubview(titleLable)
         addSubview(allWarkoutsButton)
         addSubview(addButton)
         addSubview(weekView)
     }
     
-    override func layoutViews() {
-        super.layoutViews()
+    override func constraintViews() {
+        super.constraintViews()
         NSLayoutConstraint.activate([
             addButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 8),
             addButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -15),
@@ -63,13 +63,13 @@ extension OverviewNavBar {
         ])
     }
     
-    override func configureViews() {
-        super.configureViews()
+    override func configureAppearance() {
+        super.configureAppearance()
         backgroundColor = .white
         
         titleLable.translatesAutoresizingMaskIntoConstraints = false
         titleLable.text = "Today"
-        titleLable.textColor = UIColor(named: "maingrey")
+        titleLable.textColor = UIColor(named: "inactive")
         titleLable.font = Resourses.Fonts.helveticaRegular(with: 22)
         
         allWarkoutsButton.translatesAutoresizingMaskIntoConstraints = false

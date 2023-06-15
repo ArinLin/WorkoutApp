@@ -50,14 +50,14 @@ extension WeekView {
 }
 
 extension WeekView.WeekDayView {
-    override func addView() {
-        super.addView()
+    override func setupViews() {
+        super.setupViews()
         addSubview(dataStack)
         dataStack.addArrangedSubview(weekName)
         dataStack.addArrangedSubview(dateNumber)
     }
-    override func configureViews() {
-        super.configureViews()
+    override func configureAppearance() {
+        super.configureAppearance()
         dataStack.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -66,8 +66,8 @@ extension WeekView.WeekDayView {
         ])
     }
     
-    override func layoutViews() {
-        super.layoutViews()
+    override func constraintViews() {
+        super.constraintViews()
         
         layer.cornerRadius = 5
         layer.masksToBounds = true
