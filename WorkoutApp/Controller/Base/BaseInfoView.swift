@@ -15,6 +15,13 @@ final class BaseInfoView: BaseView {
         
         return label
     }()
+    
+    private let button: UIButton = {
+        let button = UIButton()
+        button.backgroundColor = .red
+        return button
+    }()
+    
     private let contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
@@ -24,12 +31,19 @@ final class BaseInfoView: BaseView {
         return view
     }()
     
-    init(with title: String? = nil, alignment: NSTextAlignment = .left) {
+    init(with title: String? = nil, buttonTitle: String? = nil) {
 
         titleLabel.text = title?.uppercased()
-        titleLabel.textAlignment = alignment
+        titleLabel.textAlignment = buttonTitle == nil ? .center : .left
+        button.setTitle(buttonTitle, for: .normal)
+        // если не передали тайтл для кнопки, то установится наш titleLabel по середине, а кнопка будет скрыта
+        button.isHidden = buttonTitle == nil ? true : false
         // меняем местами, чтобы наш кастомный констрейнт для топАнкора срабатывал
         super.init (frame: .zero)
+    }
+    
+    func addButtonTarget(target: Any?, action: Selector) {
+        button.addTarget(target, action: action, for: .touchUpInside)
     }
     
     required init?(coder: NSCoder) {
@@ -41,6 +55,7 @@ extension BaseInfoView {
     override func setupViews() {
         super.setupViews()
         addSubview(titleLabel)
+        addSubview(button)
         addSubview(contentView)
     }
     
@@ -54,12 +69,18 @@ extension BaseInfoView {
         let contentTopOffset: CGFloat = titleLabel.text == nil ? 0 : 10
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        button.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
         titleLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
         titleLabel.topAnchor.constraint(equalTo: topAnchor),
         titleLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
+        
+        button.trailingAnchor.constraint(equalTo: trailingAnchor),
+        button.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
+        button.widthAnchor.constraint(equalToConstant: 130),
+        button.heightAnchor.constraint(equalToConstant: 30),
         
 //        contentView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
         contentView.topAnchor.constraint(equalTo: contentTopAnchor, constant: contentTopOffset),
