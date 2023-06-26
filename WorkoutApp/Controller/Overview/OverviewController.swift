@@ -10,7 +10,7 @@ import UIKit
 class OverviewController: BaseController {
     
     private let navBar = OverviewNavBar()
-    private let allWarkoutsButton = SecondaryButton()
+//    private let allWarkoutsButton = SecondaryButton(with: .secondary, title: "All Workouts")
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +28,7 @@ extension OverviewController {
     override func addViews() {
         super.addViews()
         view.addSubview(navBar)
-        view.addSubview(allWarkoutsButton)
+//        view.addSubview(allWarkoutsButton)
     }
     override func configure() {
         super.configure()

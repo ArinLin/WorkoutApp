@@ -94,6 +94,7 @@
 				844B71002A375B6F00D31E38 /* BaseController.swift */,
 				843A9E3C2A38D7F100BA954F /* BaseView.swift */,
 				848C3CBC2A3B275A003DEF82 /* BaseInfoView.swift */,
+				844B71112A37BB7400D31E38 /* SecondaryButton.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -135,7 +136,6 @@
 			isa = PBXGroup;
 			children = (
 				843A9E3E2A39C1ED00BA954F /* WeekView */,
-				844B71112A37BB7400D31E38 /* SecondaryButton.swift */,
 				843A9E3A2A38D79400BA954F /* OverviewNavBar.swift */,
 			);
 			path = Views;

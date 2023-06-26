@@ -28,6 +28,10 @@ final class TabBarController: UITabBarController {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+//    // делаем переключатель для таббара
+//    func switchTo(tab: Tabs) {
+//        selectedItem = tab.rawValue
+//    }
     
     // 1. зададим внешний вид таба -- это будет функция приватной конфигурации
     private func config() {

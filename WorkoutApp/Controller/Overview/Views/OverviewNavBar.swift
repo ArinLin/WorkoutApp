@@ -10,7 +10,12 @@ import UIKit
 final class OverviewNavBar: BaseView {
     
     private let titleLable = UILabel()
-    private let allWarkoutsButton = SecondaryButton()
+    private let allWarkoutsButton: SecondaryButton = {
+        let button = SecondaryButton(with: .secondary)
+        button.setTitle(title: "All Workouts")
+        return button
+    } ()
+                        
     private let addButton = UIButton()
     // тестовый вариант
     private let weekView = WeekView()

@@ -10,8 +10,8 @@ import UIKit
 class SessionController: BaseController {
     // создаем таймер
     private let timerView: BaseInfoView = {
-        let view = BaseInfoView(with: "Test", buttonTitle: "TestButton")
-
+        let view = BaseInfoView(with: "Test", buttonTitle: "TestButton".uppercased())
+        
         return view
     }()
 

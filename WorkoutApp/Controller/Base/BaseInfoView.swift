@@ -16,11 +16,13 @@ final class BaseInfoView: BaseView {
         return label
     }()
     
-    private let button: UIButton = {
-        let button = UIButton()
-        button.backgroundColor = .red
-        return button
-    }()
+    private let button = SecondaryButton(with: .primary)
+    
+//    UIButton = {
+//        let button = UIButton()
+//        button.backgroundColor = .red
+//        return button
+//    }()
     
     private let contentView: UIView = {
         let view = UIView()
@@ -35,7 +37,7 @@ final class BaseInfoView: BaseView {
 
         titleLabel.text = title?.uppercased()
         titleLabel.textAlignment = buttonTitle == nil ? .center : .left
-        button.setTitle(buttonTitle, for: .normal)
+        button.setTitle(title: buttonTitle)
         // если не передали тайтл для кнопки, то установится наш titleLabel по середине, а кнопка будет скрыта
         button.isHidden = buttonTitle == nil ? true : false
         // меняем местами, чтобы наш кастомный констрейнт для топАнкора срабатывал
