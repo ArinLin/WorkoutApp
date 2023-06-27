@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class BaseInfoView: BaseView {
+class BaseInfoView: BaseView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = Resourses.Fonts.helveticaRegular(with: 13)
