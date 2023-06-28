@@ -10,7 +10,7 @@ import UIKit
 final class TimerView: BaseInfoView {
     private let progressView: ProgressView = {
         let view = ProgressView()
-        view.drawProgress(percent: 0.7)
+        view.drawProgress(percent: 0.9)
         return view
     }()
 }
