@@ -10,6 +10,10 @@ import UIKit
 extension TimerView {
     final class ProgressView: UIView {
         func drawProgress(percent: CGFloat) {
+            // чтобы у нас не было дерганой анимации при отрисовке таймера (т.к каждую секунду один слой накладывается на другой), мы должны удалять предыдущии слои
+            layer.sublayers?.removeAll() // удаляем все предыдущие слои
+            
+            
             // UIScreen.main.bounds.width - ширина экрана
             // отступы 15 + отступ самого таймер вью 40
             // умножаем на 2, потому что с обеих сторон

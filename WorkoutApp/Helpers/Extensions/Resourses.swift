@@ -21,6 +21,17 @@ enum Resourses {
         static var allWorkoutsButton = "All workouts"
     }
     
+    enum Session {
+        static let navBarStart = "Start"
+        static let navBarPause = "Pause"
+        static let navBarFinish = "Finish"
+    }
+    
+    enum Progress {
+        static let navBarLeft = "Export"
+        static let navBarRight = "Details"
+    }
+    
     enum Fonts {
         static func helveticaRegular(with size: CGFloat) -> UIFont {
             UIFont(name: "Helvetica", size: size) ?? UIFont()
