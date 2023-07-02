@@ -15,6 +15,49 @@ enum TimerState {
 }
 
 final class TimerView: BaseInfoView {
+    
+    private let elapsedTimeLable: UILabel = {
+        let label = UILabel()
+        label.text = Resourses.Session.elapsedTime
+        label.font = Resourses.Fonts.helveticaRegular(with: 14)
+        label.textColor = UIColor(named: "maingrey")
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let elapsedTimeValueLable: UILabel = {
+        let label = UILabel()
+        label.font = Resourses.Fonts.helveticaRegular(with: 46)
+        label.textColor = UIColor(named: "inactive")
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let remainingTimeLable: UILabel = {
+        let label = UILabel()
+        label.text = Resourses.Session.remainingTime
+        label.font = Resourses.Fonts.helveticaRegular(with: 13)
+        label.textColor = UIColor(named: "maingrey")
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let remainingTimeValueLable: UILabel = {
+        let label = UILabel()
+        label.font = Resourses.Fonts.helveticaRegular(with: 13)
+        label.textColor = UIColor(named: "inactive")
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private let timeStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .vertical
+        view.distribution = .fillProportionally
+        view.spacing = 10
+        return view
+    }()
+    
 //    private let progressView: ProgressView = {
 //        let view = ProgressView()
 //        view.drawProgress(percent: 0.0)
@@ -87,6 +130,18 @@ extension TimerView {
     override func setupViews() {
         super.setupViews()
         addSubview(progressView)
+        
+        [
+            elapsedTimeLable,
+            elapsedTimeValueLable,
+            remainingTimeLable,
+            remainingTimeValueLable
+        ].forEach {
+            timeStackView.addArrangedSubview($0) // каждый элемент, который будет в этом перечислении взят, будет установлен внутри нашего стеквью
+        }
+        
+        addSubview(timeStackView)
+        
     }
     
     override func constraintViews() {
@@ -97,6 +152,13 @@ extension TimerView {
             progressView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 40),
             progressView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -40),
             progressView.heightAnchor.constraint(equalTo: progressView.widthAnchor),
+            progressView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -40),
+        ])
+        
+        timeStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            timeStackView.centerYAnchor.constraint(equalTo: progressView.centerYAnchor),
+            timeStackView.centerXAnchor.constraint(equalTo: progressView.centerXAnchor),
         ])
     }
     

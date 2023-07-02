@@ -22,9 +22,12 @@ enum Resourses {
     }
     
     enum Session {
-        static let navBarStart = "Start"
+        static let navBarStart = "Start  "
         static let navBarPause = "Pause"
         static let navBarFinish = "Finish"
+        
+        static let elapsedTime = "Elapsed Time"
+        static let remainingTime = "Remaining Time"
     }
     
     enum Progress {
