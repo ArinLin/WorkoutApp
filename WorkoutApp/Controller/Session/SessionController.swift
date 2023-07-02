@@ -30,6 +30,14 @@ class SessionController: BaseController {
         addNavigationBarButton(at: NavBarPosition.right, title: Resourses.Session.navBarFinish)
         
         timerView.configure(duration: timerDuration, progress: 0.6)
+        
+        // говорим, что в колбеке будет выполняться определенный код: в нашем случае -
+        timerView.callBack = { [weak self] in
+            // немного отложим обратный пробег таймера на 1 секунду
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                self?.navBarRightButtonHandler()
+            }
+        }
     }
     
     override func navBarLeftButtonHandler() {

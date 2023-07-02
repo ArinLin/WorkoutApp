@@ -71,6 +71,8 @@ final class TimerView: BaseInfoView {
     
     public var state: TimerState = .isStopped // делаем public, чтобы можно было вызывать откуда угодно, по дефолту таймер остановлен
     
+    var callBack: (() -> Void)?
+    
     // добавляем конфигуратор, который отрисовывает состояние таймера в зависимости от входящих параметров
     func configure(duration: Double, progress: Double) {
         timerDuration = duration
@@ -95,6 +97,7 @@ final class TimerView: BaseInfoView {
             if self.timerProgress > self.timerDuration {
                 self.timerProgress = self.timerDuration // если прогресс больше чем длительность, то наш timerProgress должен стать максимальным
                 timer.invalidate() // прерываем таймер
+                self.callBack?() // таймер будет сброшен и сразу после этого, мы должны выполнить некое действие
             }
             // когда у нас происходит каждая итерация ьаймера, мы будем конфигурировать себя
             self.configure(duration: self.timerDuration, progress: self.timerProgress)
