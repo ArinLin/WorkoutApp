@@ -16,6 +16,9 @@ class SessionController: BaseController {
 //    }()
     
     private let timerView = TimerView()
+    private let statsView = StatsView(with: Resourses.Session.workoutStats)
+    private let stepsView = BaseInfoView(with: Resourses.Session.stepsCounter)
+    
     private let timerDuration = 15.0
 
     override func viewDidLoad() {
@@ -31,7 +34,7 @@ class SessionController: BaseController {
         
         timerView.configure(duration: timerDuration, progress: 0.6)
         
-        // говорим, что в колбеке будет выполняться определенный код: в нашем случае -
+        // говорим, что в колбеке будет выполняться определенный код
         timerView.callBack = { [weak self] in
             // немного отложим обратный пробег таймера на 1 секунду
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
@@ -65,16 +68,33 @@ extension SessionController {
     override func addViews() {
         super.addViews()
         view.addSubview(timerView)
+        view.addSubview(statsView)
+        view.addSubview(stepsView)
     }
     
     override func layoutViews() {
         super.layoutViews()
         timerView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate ([
             timerView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             timerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             timerView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+        ])
+        
+        statsView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            statsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
+            statsView.topAnchor.constraint(equalTo: timerView.bottomAnchor, constant: 10),
+            statsView.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -7.5),
+            statsView.heightAnchor.constraint(equalToConstant: 200),
+        ])
+        
+        stepsView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            stepsView.leadingAnchor.constraint(equalTo: view.centerXAnchor, constant: 7.5),
+            stepsView.topAnchor.constraint(equalTo: statsView.topAnchor),
+            stepsView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -15),
+            stepsView.heightAnchor.constraint(equalTo: statsView.heightAnchor),
         ])
     }
     

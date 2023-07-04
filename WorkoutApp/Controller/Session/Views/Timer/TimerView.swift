@@ -107,8 +107,8 @@ final class TimerView: BaseInfoView {
         elapsedTimeValueLable.text = getDisplayedString(from: Int(tempCurrentValue))
         remainingTimeValueLable.text = getDisplayedString(from: Int (duration) - Int (tempCurrentValue))
         
-        completedPercentView.configure(withTitle: "COMPLETED", withValue: roundedPercent)
-        remainigPercetnView.configure(withTitle: "REMAINING", withValue: 100 - roundedPercent)
+        completedPercentView.configure(withTitle: Resourses.Session.completed.uppercased(), withValue: roundedPercent)
+        remainigPercetnView.configure(withTitle: Resourses.Session.remaining.uppercased(), withValue: 100 - roundedPercent)
         
         progressView.drawProgress(percent: CGFloat(percent)) // передаем во вью процент
     }
