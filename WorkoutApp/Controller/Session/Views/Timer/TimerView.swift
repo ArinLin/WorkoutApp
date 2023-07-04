@@ -58,6 +58,24 @@ final class TimerView: BaseInfoView {
         return view
     }()
     
+    // помимо этого стека, в который мы поместим PersentView, нужно сделать еще 3 вью: completed, remaining
+    private let bottomStackView: UIStackView = {
+        let view = UIStackView()
+        view.axis = .horizontal
+        view.distribution = .fillProportionally
+        view.spacing = 25
+        return view
+    }()
+    
+    // создаем 3 новые вью к предыдущему стеку
+    private let completedPercentView = PercentView()
+    private let remainigPercetnView = PercentView()
+    private let bottomSeparatorView: UIView = {
+        let view = UIView()
+        view.backgroundColor = UIColor(named: "maingrey")
+        return view
+    }()
+    
 //    private let progressView: ProgressView = {
 //        let view = ProgressView()
 //        view.drawProgress(percent: 0.0)
@@ -83,8 +101,14 @@ final class TimerView: BaseInfoView {
         
         let percent = tempCurrentValue / goalValueDevider
         
+        // делаем округленные проценты, которые будут отображаться внизу
+        let roundedPercent = Int(round (percent * 100))
+        
         elapsedTimeValueLable.text = getDisplayedString(from: Int(tempCurrentValue))
         remainingTimeValueLable.text = getDisplayedString(from: Int (duration) - Int (tempCurrentValue))
+        
+        completedPercentView.configure(withTitle: "COMPLETED", withValue: roundedPercent)
+        remainigPercetnView.configure(withTitle: "REMAINING", withValue: 100 - roundedPercent)
         
         progressView.drawProgress(percent: CGFloat(percent)) // передаем во вью процент
     }
@@ -121,7 +145,10 @@ final class TimerView: BaseInfoView {
                                      repeats: true,
                                      block: { [weak self] timer in
             guard let self = self else { return }
-            self.timerProgress -= 0.1 // каждую милисекунду мы изменяем наше значение
+            //self.timerProgress -= 0.1 // каждую милисекунду мы изменяем наше значение
+            
+            //self.timerProgress -= 0.1 слишком медленная обратная анимация при больших значениях. Правильнее сделать через зависимость от timerDuration
+            self.timerProgress -= self.timerDuration * 0.01
             
             if self.timerProgress <= 0 {
                 self.timerProgress = 0 // timerProgress равен нулю, чтобы мы не выходили за пределы
@@ -149,6 +176,14 @@ extension TimerView {
         
         addSubview(timeStackView)
         
+        [
+            completedPercentView,
+            bottomSeparatorView,
+            remainigPercetnView
+        ].forEach {
+            bottomStackView.addArrangedSubview($0) // каждый элемент, который будет в этом перечислении взят, будет установлен внутри нашего стеквью
+        }
+        addSubview(bottomStackView)
     }
     
     override func constraintViews() {
@@ -166,6 +201,16 @@ extension TimerView {
         NSLayoutConstraint.activate([
             timeStackView.centerYAnchor.constraint(equalTo: progressView.centerYAnchor),
             timeStackView.centerXAnchor.constraint(equalTo: progressView.centerXAnchor),
+        ])
+        
+        bottomStackView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            bottomStackView.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -28),
+            bottomStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            bottomStackView.heightAnchor.constraint(equalToConstant: 35),
+            bottomStackView.widthAnchor.constraint(equalToConstant: 175),
+            
+            bottomSeparatorView.widthAnchor.constraint(equalToConstant: 1)
         ])
     }
     
