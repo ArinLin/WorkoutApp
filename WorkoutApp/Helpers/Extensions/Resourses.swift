@@ -33,7 +33,7 @@ enum Resourses {
         
         static let workoutStats = "Workout stats"
         static let averagePace = "Average pace"
-        static let heartRate = "Heart rate!"
+        static let heartRate = "Heart rate"
         static let totalDistance = "Total distance"
         static let totalSteps = "Total steps"
         
@@ -60,10 +60,10 @@ enum Resourses {
         }
         
         enum SessionView {
-            static var overview = UIImage(named: "heartRate")?.resized(to: CGSize(width: 22, height: 22))
-            static var progress = UIImage(named: "route")?.resized(to: CGSize(width: 22, height: 22))
-            static var settings = UIImage(named: "speedometr")?.resized(to: CGSize(width: 22, height: 22))
-            static var session = UIImage(named: "steps")?.resized(to: CGSize(width: 22, height: 22))
+            static var heartRate = UIImage(named: "heartRate")?.resized(to: CGSize(width: 22, height: 22))
+            static var route = UIImage(named: "route")?.resized(to: CGSize(width: 22, height: 22))
+            static var speedometr = UIImage(named: "speedometr")?.resized(to: CGSize(width: 22, height: 22))
+            static var steps = UIImage(named: "steps")?.resized(to: CGSize(width: 22, height: 22))
         }
         
         enum Common {
