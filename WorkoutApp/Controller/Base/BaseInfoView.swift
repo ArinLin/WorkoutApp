@@ -18,13 +18,7 @@ class BaseInfoView: BaseView {
     
     private let button = SecondaryButton(with: .primary)
     
-//    UIButton = {
-//        let button = UIButton()
-//        button.backgroundColor = .red
-//        return button
-//    }()
-    
-    private let contentView: UIView = {
+    let contentView: UIView = {
         let view = UIView()
         view.backgroundColor = .white
         view.layer.borderColor = UIColor(named: "maingrey")?.cgColor

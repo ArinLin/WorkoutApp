@@ -32,7 +32,7 @@ class SessionController: BaseController {
         addNavigationBarButton(at: NavBarPosition.left, title: Resourses.Session.navBarStart) // здесь задаем тайтл
         addNavigationBarButton(at: NavBarPosition.right, title: Resourses.Session.navBarFinish)
         
-        timerView.configure(duration: timerDuration, progress: 0.6)
+        timerView.configure(duration: timerDuration, progress: 0)
         
         // говорим, что в колбеке будет выполняться определенный код
         timerView.callBack = { [weak self] in
@@ -86,7 +86,7 @@ extension SessionController {
             statsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             statsView.topAnchor.constraint(equalTo: timerView.bottomAnchor, constant: 10),
             statsView.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -7.5),
-            statsView.heightAnchor.constraint(equalToConstant: 200),
+//            statsView.heightAnchor.constraint(equalToConstant: 200),
         ])
         
         stepsView.translatesAutoresizingMaskIntoConstraints = false
@@ -102,5 +102,11 @@ extension SessionController {
         super.configure()
         addNavigationBarButton(at: .left, title: Resourses.Session.navBarStart)
         addNavigationBarButton(at: .right, title: Resourses.Session.navBarFinish)
+        
+        statsView.configure(with: [.heartRate(value: "162"),
+                                   .averagePace(value: "5.3"),
+                                   .totalDistance(value: "8.1"),
+                                   .totalSteps(value: "12 320")
+                                  ])
     }
 }
