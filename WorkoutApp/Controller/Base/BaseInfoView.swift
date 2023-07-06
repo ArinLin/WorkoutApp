@@ -77,8 +77,7 @@ extension BaseInfoView {
         button.centerYAnchor.constraint(equalTo: titleLabel.centerYAnchor),
         button.widthAnchor.constraint(equalToConstant: 130),
         button.heightAnchor.constraint(equalToConstant: 30),
-        
-//        contentView.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+  
         contentView.topAnchor.constraint(equalTo: contentTopAnchor, constant: contentTopOffset),
         contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
         contentView.trailingAnchor.constraint(equalTo: trailingAnchor),

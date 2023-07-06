@@ -28,6 +28,9 @@
 		844D710D2A3696D3005CF814 /* Resourses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 844D710C2A3696D3005CF814 /* Resourses.swift */; };
 		8463DAFD2A52BF6A00FAA35E /* PercentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8463DAFC2A52BF6A00FAA35E /* PercentView.swift */; };
 		848C3CBD2A3B275A003DEF82 /* BaseInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848C3CBC2A3B275A003DEF82 /* BaseInfoView.swift */; };
+		849687452A5618D3005BF4DE /* StepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849687442A5618D3005BF4DE /* StepsView.swift */; };
+		849687472A561A26005BF4DE /* BarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849687462A561A26005BF4DE /* BarsView.swift */; };
+		849687492A561A42005BF4DE /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849687482A561A42005BF4DE /* BarView.swift */; };
 		84A511E32A4AE77000F1EE8B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A511E22A4AE77000F1EE8B /* TimerView.swift */; };
 		84A511E62A4AE99300F1EE8B /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A511E52A4AE99300F1EE8B /* ProgressView.swift */; };
 		84D8991D2A54BD720024494B /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8991C2A54BD720024494B /* StatsView.swift */; };
@@ -58,6 +61,9 @@
 		844D710C2A3696D3005CF814 /* Resourses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Resourses.swift; sourceTree = "<group>"; };
 		8463DAFC2A52BF6A00FAA35E /* PercentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PercentView.swift; sourceTree = "<group>"; };
 		848C3CBC2A3B275A003DEF82 /* BaseInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseInfoView.swift; sourceTree = "<group>"; };
+		849687442A5618D3005BF4DE /* StepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsView.swift; sourceTree = "<group>"; };
+		849687462A561A26005BF4DE /* BarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarsView.swift; sourceTree = "<group>"; };
+		849687482A561A42005BF4DE /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		84A511E22A4AE77000F1EE8B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		84A511E52A4AE99300F1EE8B /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		84D8991C2A54BD720024494B /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -105,6 +111,8 @@
 				843A9E3C2A38D7F100BA954F /* BaseView.swift */,
 				848C3CBC2A3B275A003DEF82 /* BaseInfoView.swift */,
 				844B71112A37BB7400D31E38 /* SecondaryButton.swift */,
+				849687462A561A26005BF4DE /* BarsView.swift */,
+				849687482A561A42005BF4DE /* BarView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -208,11 +216,20 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		849687432A56189C005BF4DE /* Steps */ = {
+			isa = PBXGroup;
+			children = (
+				849687442A5618D3005BF4DE /* StepsView.swift */,
+			);
+			path = Steps;
+			sourceTree = "<group>";
+		};
 		84A511E12A4AE73A00F1EE8B /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				84A511E42A4AE97600F1EE8B /* Timer */,
 				84D8991B2A54BD550024494B /* Stats */,
+				849687432A56189C005BF4DE /* Steps */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -312,6 +329,7 @@
 				843A9E422A39C53400BA954F /* WeekDayView.swift in Sources */,
 				843A9E442A39D52A00BA954F /* Date+Ext.swift in Sources */,
 				844B71032A37619700D31E38 /* UIView+Ext.swift in Sources */,
+				849687472A561A26005BF4DE /* BarsView.swift in Sources */,
 				844B710B2A37ACE800D31E38 /* SessionController.swift in Sources */,
 				844D70F82A367C52005CF814 /* OverviewController.swift in Sources */,
 				843A9E3B2A38D79400BA954F /* OverviewNavBar.swift in Sources */,
@@ -323,9 +341,11 @@
 				844B71012A375B6F00D31E38 /* BaseController.swift in Sources */,
 				844B710F2A37AD0900D31E38 /* ProgressController.swift in Sources */,
 				844D71092A36818B005CF814 /* TabBarController.swift in Sources */,
+				849687492A561A42005BF4DE /* BarView.swift in Sources */,
 				844B710D2A37ACF900D31E38 /* SettingsController.swift in Sources */,
 				844D70F42A367C52005CF814 /* AppDelegate.swift in Sources */,
 				843A9E3D2A38D7F100BA954F /* BaseView.swift in Sources */,
+				849687452A5618D3005BF4DE /* StepsView.swift in Sources */,
 				84A511E62A4AE99300F1EE8B /* ProgressView.swift in Sources */,
 				844D710D2A3696D3005CF814 /* Resourses.swift in Sources */,
 				844D70F62A367C52005CF814 /* SceneDelegate.swift in Sources */,

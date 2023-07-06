@@ -17,7 +17,7 @@ class SessionController: BaseController {
     
     private let timerView = TimerView()
     private let statsView = StatsView(with: Resourses.Session.workoutStats)
-    private let stepsView = BaseInfoView(with: Resourses.Session.stepsCounter)
+    private let stepsView = StepsView(with: Resourses.Session.stepsCounter)
     
     private let timerDuration = 15.0
 
@@ -86,7 +86,6 @@ extension SessionController {
             statsView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 15),
             statsView.topAnchor.constraint(equalTo: timerView.bottomAnchor, constant: 10),
             statsView.trailingAnchor.constraint(equalTo: view.centerXAnchor, constant: -7.5),
-//            statsView.heightAnchor.constraint(equalToConstant: 200),
         ])
         
         stepsView.translatesAutoresizingMaskIntoConstraints = false
@@ -108,5 +107,10 @@ extension SessionController {
                                    .totalDistance(value: "8.1"),
                                    .totalSteps(value: "12 320")
                                   ])
+        
+        stepsView.configure(with: [.init(value: "8k", heightParm: 1, title: "2/14"),
+                                   .init(value: "7k", heightParm: 0.8, title: "2/15"),
+                                   .init(value: "5k", heightParm: 0.6, title: "2/16"),
+                                   .init(value: "6k", heightParm: 0.3, title: "2/17")])
     }
 }
