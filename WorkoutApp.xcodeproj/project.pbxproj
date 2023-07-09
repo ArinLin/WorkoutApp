@@ -32,6 +32,10 @@
 		849687472A561A26005BF4DE /* BarsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849687462A561A26005BF4DE /* BarsView.swift */; };
 		849687492A561A42005BF4DE /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849687482A561A42005BF4DE /* BarView.swift */; };
 		8496874E2A57567B005BF4DE /* DailyPerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496874D2A57567B005BF4DE /* DailyPerformanceView.swift */; };
+		849687502A586C51005BF4DE /* MonthlyPerformanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496874F2A586C51005BF4DE /* MonthlyPerformanceView.swift */; };
+		849687522A58C7D9005BF4DE /* ChartsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849687512A58C7D9005BF4DE /* ChartsView.swift */; };
+		849687562A5ACD9F005BF4DE /* YAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849687552A5ACD9F005BF4DE /* YAxis.swift */; };
+		849687582A5AD4EE005BF4DE /* XAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849687572A5AD4EE005BF4DE /* XAxis.swift */; };
 		84A511E32A4AE77000F1EE8B /* TimerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A511E22A4AE77000F1EE8B /* TimerView.swift */; };
 		84A511E62A4AE99300F1EE8B /* ProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A511E52A4AE99300F1EE8B /* ProgressView.swift */; };
 		84D8991D2A54BD720024494B /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84D8991C2A54BD720024494B /* StatsView.swift */; };
@@ -66,6 +70,10 @@
 		849687462A561A26005BF4DE /* BarsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarsView.swift; sourceTree = "<group>"; };
 		849687482A561A42005BF4DE /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		8496874D2A57567B005BF4DE /* DailyPerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyPerformanceView.swift; sourceTree = "<group>"; };
+		8496874F2A586C51005BF4DE /* MonthlyPerformanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MonthlyPerformanceView.swift; sourceTree = "<group>"; };
+		849687512A58C7D9005BF4DE /* ChartsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartsView.swift; sourceTree = "<group>"; };
+		849687552A5ACD9F005BF4DE /* YAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YAxis.swift; sourceTree = "<group>"; };
+		849687572A5AD4EE005BF4DE /* XAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XAxis.swift; sourceTree = "<group>"; };
 		84A511E22A4AE77000F1EE8B /* TimerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerView.swift; sourceTree = "<group>"; };
 		84A511E52A4AE99300F1EE8B /* ProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressView.swift; sourceTree = "<group>"; };
 		84D8991C2A54BD720024494B /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
@@ -113,8 +121,8 @@
 				843A9E3C2A38D7F100BA954F /* BaseView.swift */,
 				848C3CBC2A3B275A003DEF82 /* BaseInfoView.swift */,
 				844B71112A37BB7400D31E38 /* SecondaryButton.swift */,
-				849687462A561A26005BF4DE /* BarsView.swift */,
-				849687482A561A42005BF4DE /* BarView.swift */,
+				849687532A58C7E6005BF4DE /* Bars */,
+				849687542A5ACD8E005BF4DE /* Charts */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -231,8 +239,28 @@
 			isa = PBXGroup;
 			children = (
 				8496874D2A57567B005BF4DE /* DailyPerformanceView.swift */,
+				8496874F2A586C51005BF4DE /* MonthlyPerformanceView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		849687532A58C7E6005BF4DE /* Bars */ = {
+			isa = PBXGroup;
+			children = (
+				849687462A561A26005BF4DE /* BarsView.swift */,
+				849687482A561A42005BF4DE /* BarView.swift */,
+			);
+			path = Bars;
+			sourceTree = "<group>";
+		};
+		849687542A5ACD8E005BF4DE /* Charts */ = {
+			isa = PBXGroup;
+			children = (
+				849687512A58C7D9005BF4DE /* ChartsView.swift */,
+				849687552A5ACD9F005BF4DE /* YAxis.swift */,
+				849687572A5AD4EE005BF4DE /* XAxis.swift */,
+			);
+			path = Charts;
 			sourceTree = "<group>";
 		};
 		84A511E12A4AE73A00F1EE8B /* Views */ = {
@@ -341,9 +369,12 @@
 				843A9E442A39D52A00BA954F /* Date+Ext.swift in Sources */,
 				844B71032A37619700D31E38 /* UIView+Ext.swift in Sources */,
 				849687472A561A26005BF4DE /* BarsView.swift in Sources */,
+				849687502A586C51005BF4DE /* MonthlyPerformanceView.swift in Sources */,
 				844B710B2A37ACE800D31E38 /* SessionController.swift in Sources */,
+				849687522A58C7D9005BF4DE /* ChartsView.swift in Sources */,
 				844D70F82A367C52005CF814 /* OverviewController.swift in Sources */,
 				8496874E2A57567B005BF4DE /* DailyPerformanceView.swift in Sources */,
+				849687582A5AD4EE005BF4DE /* XAxis.swift in Sources */,
 				843A9E3B2A38D79400BA954F /* OverviewNavBar.swift in Sources */,
 				844B70FF2A37459200D31E38 /* NavBarController.swift in Sources */,
 				843A9E402A39C20200BA954F /* WeekView.swift in Sources */,
@@ -360,6 +391,7 @@
 				849687452A5618D3005BF4DE /* StepsView.swift in Sources */,
 				84A511E62A4AE99300F1EE8B /* ProgressView.swift in Sources */,
 				844D710D2A3696D3005CF814 /* Resourses.swift in Sources */,
+				849687562A5ACD9F005BF4DE /* YAxis.swift in Sources */,
 				844D70F62A367C52005CF814 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

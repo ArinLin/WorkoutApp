@@ -81,8 +81,8 @@ extension BarView {
             
             barView.topAnchor.constraint(equalTo: valueLabel.bottomAnchor, constant: 7),
             barView.centerXAnchor.constraint(equalTo: centerXAnchor),
-            barView.widthAnchor.constraint (equalToConstant: 17),
-            barView.heightAnchor.constraint (equalTo: heightAnchor, multiplier: heightMultiplier * 0.8),
+            barView.widthAnchor.constraint(equalToConstant: 17),
+            barView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: heightMultiplier * 0.8),
             
             titleLabel.topAnchor.constraint(equalTo: barView.bottomAnchor, constant: 10),
             titleLabel.centerXAnchor.constraint(equalTo:centerXAnchor),
