@@ -38,7 +38,8 @@ final class BarView: BaseView {
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.font = Resourses.Fonts.helveticaRegular(with: 9)
-        label.textColor = UIColor(named: "maingrey")
+//        label.textColor = UIColor(named: "maingrey")
+        label.textColor = UIColor(named: "inactive")
         return label
     }()
     
