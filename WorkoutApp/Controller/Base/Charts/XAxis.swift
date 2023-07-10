@@ -29,7 +29,7 @@ final class XAxis: BaseView {
             lable.font = Resourses.Fonts.helveticaRegular(with: 9)
             lable.textColor = UIColor(named: "inactive")
             lable.textAlignment = .center
-            lable.text = $0.title.uppercased()
+            lable.text = $0.dataTitle.uppercased()
             
             stackView.addArrangedSubview(lable)
         }

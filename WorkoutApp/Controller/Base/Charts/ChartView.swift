@@ -26,6 +26,7 @@ final class ChartView: BaseView {
         layoutIfNeeded()
 //        addDashLine(at: 100)
         addDashLinesToY()
+        drawChart(withData: withData)
     }
 }
 
@@ -91,6 +92,41 @@ private extension ChartView {
         
         // на наше основное вью, нужно добавить сабвью в виде слоя, который мы только что создали
         layer.addSublayer(dashLine)
+    }
+    
+    // создаем метод, который будет рисовать нашу кривую по входящим данным
+    func drawChart(withData: [ChartsView.Data]) {
+        guard let maxValue = withData.sorted(by: { $0.dataValue > $1.dataValue }).first?.dataValue else { return }
+        // получаем массив точек с 0 по максимально значение (в нашем случае по 9). Конкретные значения будут связаны с x
+        let valuePoints = withData.enumerated().map { CGPoint(x: CGFloat ($0), y: CGFloat ($1.dataValue)) }
+        let chartHeight = bounds.height / CGFloat(maxValue + 10) // т.к наш максимальная точка не доходит до верхнего чарта на 10 поинтов
+        
+        let points = valuePoints.map {
+            let x = bounds.width / CGFloat (valuePoints.count - 1) * $0.x // берем ширину экрана и делим на количество точек, (valuePoints -- количество точек в массиве). И умножая на порядковый номер координаты т.е * $0.x, получим отступ по оси x
+            let y = bounds.height - $0.y * chartHeight
+            return CGPoint(x: x, y: y)
+        }
+        
+        // нужно пройтись UIBezierPath и отрисовать кривые
+        let chartPath = UIBezierPath()
+        chartPath.move(to: points[0]) // поставим первую точку
+        
+        // пройдемся по всем точкам и отрисуем путь кривой. Ничего отрисовываться не будет, за отображение отвечает layer!
+        points.forEach {
+            chartPath.addLine(to: $0)
+        }
+        
+        // отрисовка самого графика
+        let chartLayer = CAShapeLayer()
+        chartLayer.path = chartPath.cgPath
+        chartLayer.fillColor = UIColor.clear.cgColor
+        chartLayer.strokeColor = UIColor(named: "active")?.cgColor
+        chartLayer.lineWidth = 3
+        chartLayer.strokeEnd = 1
+        chartLayer.lineCap = .round
+        chartLayer.lineJoin = .round
+        
+        layer.addSublayer(chartLayer)
     }
 }
 

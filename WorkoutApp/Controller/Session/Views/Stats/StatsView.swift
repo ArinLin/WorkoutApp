@@ -23,7 +23,7 @@ final class StatsView: BaseInfoView {
 //        addSubview(itemView)
 //
 //        itemView.cunfigure(with: StatsItemView.StatsItem(image: Resourses.Images.SessionView.heartRate!,
-//                                                         value: "155 bpm",
+//                                                         valueData: "155 bpm",
 //                                                         title: Resourses.Session.heartRate.uppercased()))
 //
 //        itemView.translatesAutoresizingMaskIntoConstraints = false

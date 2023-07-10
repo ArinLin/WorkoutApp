@@ -69,16 +69,16 @@ extension ProgressController {
                                               .init (value: "2", heightParm: 0.4, title: "Sun")
         ])
         
-        monthlyPerformanceView.configure(with: [.init(value: 45, title: "Mar"),
-                                                .init(value: 50, title: "Apr"),
-                                                .init(value: 55, title: "May"),
-                                                .init(value: 65, title: "Jun"),
-                                                .init(value: 60, title: "Jul"),
-                                                .init(value: 70, title: "Aug"),
-                                                .init(value: 55, title: "Sep"),
-                                                .init(value: 45, title: "Oct"),
-                                                .init(value: 40, title: "Nov"),
-                                                .init(value: 35, title: "Dec"),
+        monthlyPerformanceView.configure(with: [.init(dataValue: 45, dataTitle: "Mar"),
+                                                .init(dataValue: 50, dataTitle: "Apr"),
+                                                .init(dataValue: 55, dataTitle: "May"),
+                                                .init(dataValue: 65, dataTitle: "Jun"),
+                                                .init(dataValue: 60, dataTitle: "Jul"),
+                                                .init(dataValue: 70, dataTitle: "Aug"),
+                                                .init(dataValue: 55, dataTitle: "Sep"),
+                                                .init(dataValue: 45, dataTitle: "Oct"),
+                                                .init(dataValue: 40, dataTitle: "Nov"),
+                                                .init(dataValue: 35, dataTitle: "Dec"),
                                                ])
     }
 }

@@ -9,8 +9,8 @@ import UIKit
 
 extension ChartsView {
     struct Data {
-        let value: Int
-        let title: String
+        let dataValue: Int
+        let dataTitle: String
     }
 }
 
