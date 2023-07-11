@@ -76,6 +76,12 @@ enum Resourses {
             static var downArrow = UIImage(systemName: "chevron.down")?.resized(to: CGSize(width: 20, height: 25))
             static var circlePlus = UIImage(systemName: "plus.circle.fill")?.resized(to: CGSize(width: 40, height: 40))?.withTintColor(UIColor(named: "active") ?? .systemGray)
         }
+        
+        enum Overview {
+            static let rightArrow = UIImage(systemName: "arrow.right.circle")?.resized(to: CGSize(width: 40, height: 40))?.withTintColor(UIColor(named: "maingrey") ?? .systemGray)
+            static let circle = UIImage(systemName: "circle")?.resized(to: CGSize(width: 40, height: 40))?.withTintColor(UIColor(named: "inactive") ?? .systemGray)
+            static let checked = UIImage(systemName: "checkmark.circle.fill")?.resized(to: CGSize(width: 40, height: 40))?.withTintColor(UIColor(named: "active") ?? .systemGray)
+        }
     }
 }
 //MARK: Меняем размер загруженных иконок через растровые изображения, используя метод UIGraphicsImageRenderer

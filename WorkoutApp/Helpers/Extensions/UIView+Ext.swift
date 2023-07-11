@@ -51,4 +51,20 @@ extension UIView {
     @objc func handleOut() {
         UIView.animate(withDuration: 0.15) {self.alpha = 1} // в этой анимации возвращаем состояние в исходное, ставим self.alpha = 1
     }
+    
+    // создаем метод, который будет закруглять углы у таблицы в Overview
+    func roundCorners(_ corners: UIRectCorner, radius: CGFloat) {
+        let path = UIBezierPath (roundedRect: bounds,
+                                 byRoundingCorners: corners,
+                                 cornerRadii: CGSize(width: radius, height: radius))
+    
+        let borderLayer = CAShapeLayer ()
+        borderLayer.frame = bounds
+        borderLayer.path = path.cgPath
+        borderLayer.strokeColor = UIColor(named: "maingrey")?.cgColor
+        borderLayer.fillColor = UIColor.clear.cgColor
+        borderLayer.lineWidth = 1
+        
+        layer.addSublayer(borderLayer)
+    }
 }

@@ -39,10 +39,7 @@ final class SectionHeaderView: UICollectionReusableView {
 
 private extension SectionHeaderView {
     func setupViews() {
-        
-        
         addSubview(title)
-        
     }
     
     func constraintViews() {
@@ -52,7 +49,6 @@ private extension SectionHeaderView {
             title.centerXAnchor.constraint(equalTo: centerXAnchor),
             title.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
-        
     }
     
     func configureAppearance() {}
