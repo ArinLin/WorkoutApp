@@ -7,6 +7,10 @@
 
 import UIKit
 
+enum CellRoundedType {
+    case top, bottom, all, notRounded
+}
+
 final class TrainingCellView: UICollectionViewCell {
     static let reuseID = "TrainingCellView"
     
@@ -58,11 +62,18 @@ final class TrainingCellView: UICollectionViewCell {
         configureAppearance()
     }
     
-    func configure(withTitle: String, subtitle: String, isDone: Bool) {
+    func configure(withTitle: String, subtitle: String, isDone: Bool, roundedType: CellRoundedType) {
         self.title.text = withTitle.uppercased()
         self.subtitle.text = subtitle
         
         checkmarkView.image = isDone ? Resourses.Images.Overview.checked : Resourses.Images.Overview.circle
+        
+        switch roundedType {
+        case .all: self.roundCorners([.allCorners], radius: 5)
+        case .bottom: self.roundCorners([.bottomLeft, .bottomRight], radius: 5)
+        case .top: self.roundCorners([.topLeft, .topRight], radius: 5)
+        case .notRounded: self.roundCorners([.allCorners], radius: 0)
+        }
     }
 }
 

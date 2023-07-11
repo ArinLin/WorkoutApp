@@ -6,12 +6,33 @@
 //
 
 import UIKit
+// массив для передачи в датасорс на отрисовку ячеек коллекции
+struct TrainingData {
+    struct Data {
+        let title: String
+        let subtitle: String
+        let isDone: Bool
+    }
+    let date: Date
+    let items: [Data]
+}
 
 class OverviewController: BaseController {
     
     private let navBar = OverviewNavBar()
-    private let header = SectionHeaderView()
-    private let cell = TrainingCellView()
+    
+    private var dataSource: [TrainingData] = []
+    
+    private let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout ()
+        layout.minimumLineSpacing = 0
+        
+        let view = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        view.showsVerticalScrollIndicator = false
+        view.backgroundColor = .clear
+        
+        return view
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,26 +52,54 @@ extension OverviewController {
     override func addViews() {
         super.addViews()
         view.addSubview(navBar)
-        view.addSubview(header)
-        view.addSubview(cell)
+        view.addSubview(collectionView)
     }
     override func configure() {
         super.configure()
         
-        // установка даты в хедер
-        let dateFormatter = DateFormatter ( )
-        dateFormatter.dateFormat = "EEEE, dd MMMM"
-        header.configure(withTitle: dateFormatter.string(from: Date()))
+        // регистрируем ячейку
+        collectionView.register(TrainingCellView.self, forCellWithReuseIdentifier: TrainingCellView.reuseID)
+        // регистрируем хедер через forSupplementaryViewOfKind
+        collectionView.register(SectionHeaderView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: SectionHeaderView.reuseID)
         
-        cell.configure(withTitle: "Warm Up Cardio", subtitle: "Stair Climber • 10 minutes", isDone: true)
-        // нужно заставить ячейку отрисовать свои размеры, чтобы сработала функция roundCorners и переданные в ней bounds (либо можно сделать через viewDidLayoutSubviews коммент выше)
-        cell.layoutIfNeeded()
-        // закругляем углы, передаем в массив, какие именно нужно закруглить
-        cell.roundCorners([.allCorners], radius: 5)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        
+        dataSource = [.init(date: Date(),
+                            items: [
+                                .init (title: "Warm Up Cardio",
+                                       subtitle: "Stair Climber • 10 minutes",
+                                       isDone: true),
+                                .init(title: "High Intensity Cardio",
+                                      subtitle: "Treadmill • 50 minutes",
+                                      isDone: false),
+                            ]),
+                      .init(date: Date(),
+                            items: [
+                                .init(title: "Warm Up Cardio",
+                                      subtitle: "Stair Climber • 10 minutes",
+                                      isDone: false),
+                                .init(title: "Chest Workout",
+                                      subtitle: "Bench Press • 3 sets • 10 reps",
+                                      isDone: false),
+                                .init(title: "Tricep Workout",
+                                      subtitle: "Overhead Extension • 5 sets • 8 reps",
+                                      isDone: false),
+                            ]),
+                      .init(date: Date(),
+                            items: [
+                                .init(title: "Cardio Interval Workout",
+                                      subtitle: "Treadmill • 60 minutes",
+                                      isDone: false),
+                            ])
+        ]
+        // когда данные получены из интернета, нужно обновить, чтобы они показались
+        collectionView.reloadData()
         
         navBar.translatesAutoresizingMaskIntoConstraints = false
-        header.translatesAutoresizingMaskIntoConstraints = false
-        cell.translatesAutoresizingMaskIntoConstraints = false
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     override func layoutViews() {
@@ -60,16 +109,73 @@ extension OverviewController {
             navBar.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             navBar.trailingAnchor.constraint(equalTo: view.trailingAnchor),
 
-            header.topAnchor.constraint(equalTo: navBar.bottomAnchor),
-            header.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            header.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            header.heightAnchor.constraint(equalToConstant: 32),
-            
-            cell.topAnchor.constraint(equalTo: header.bottomAnchor),
-            cell.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
-            cell.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
-            cell.heightAnchor.constraint(equalToConstant: 75),
+            collectionView.topAnchor.constraint(equalTo: navBar.bottomAnchor),
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 16),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -16),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
         ])
     }
 }
-
+// для получения данных
+extension OverviewController: UICollectionViewDataSource {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        dataSource.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        dataSource[section].items.count
+    }
+    
+    // метод возвращает ячейки для нашей коллекции
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TrainingCellView.reuseID, for: indexPath) as? TrainingCellView else { return UICollectionViewCell() }
+        // чтобы в ячейки отображалась информация, которую мы задали выше
+        let item = dataSource[indexPath.section].items[indexPath.row]
+        
+        // настраиваем закругление ячеек
+        let roundedType: CellRoundedType
+        // если ячейка и первая, и в то же время последняя, то она закругляется
+        if indexPath.row == 0 && indexPath.row == dataSource[indexPath.section].items.count - 1 {
+            roundedType = .all
+        // если ячейка первая, то закругляется только верх
+        } else if indexPath.row == 0 {
+            roundedType = .top
+        } else if indexPath.row == dataSource[indexPath.section].items.count - 1 {
+            roundedType = .bottom
+        } else {
+            roundedType = .notRounded
+        }
+        
+        cell.configure(withTitle: item.title, subtitle: item.subtitle, isDone: item.isDone, roundedType: roundedType)
+        
+        return cell
+    }
+    
+    // настройки хедера
+    func collectionView(_ collectionView: UICollectionView,
+                        viewForSupplementaryElementOfKind kind: String,
+                        at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: SectionHeaderView.reuseID, for: indexPath) as? SectionHeaderView else { return UICollectionReusableView() }
+        
+        view.configure(withTitle: dataSource[indexPath.section].date)
+        return view
+    }
+}
+ 
+// для настройки внешнего вида
+extension OverviewController: UICollectionViewDelegateFlowLayout {
+    // для настройки размера ячейки
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
+        CGSize(width:collectionView.frame.width, height: 70) // ячейки такой же ширины, как и коллекция
+    }
+    
+    // для настройки размера хедера
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        CGSize(width:collectionView.frame.width, height: 32)
+    }
+}

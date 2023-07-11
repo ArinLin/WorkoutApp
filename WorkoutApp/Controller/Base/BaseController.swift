@@ -21,7 +21,7 @@ class BaseController: UIViewController {
     func addViews() {}
     func layoutViews() {}
     func configure() {
-        view.backgroundColor = .white
+        view.backgroundColor = UIColor(named: "bg")
     }
     // нужно определить 2 функции из настройки кнопок
     func navBarLeftButtonHandler() {

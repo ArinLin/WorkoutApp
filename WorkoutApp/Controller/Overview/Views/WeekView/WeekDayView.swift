@@ -39,12 +39,12 @@ extension WeekView {
             let day = Calendar.current.component(.day, from: currentDate)
             // для подствечивания сегодняшней даты
             let isTooday = currentDate.stripTime () == Date().stripTime()
-            backgroundColor = isTooday ? UIColor(named: "active") : UIColor(named: "bgSky")
+            backgroundColor = isTooday ? UIColor(named: "active") : UIColor(named: "bg")
             
             weekName.text = name.uppercased()
-            weekName.textColor = isTooday ? UIColor(named: "bgSky") : UIColor(named: "active")
+            weekName.textColor = isTooday ? UIColor(named: "bg") : UIColor(named: "active")
             dateNumber.text = "\(day)"
-            dateNumber.textColor = isTooday ? UIColor(named: "bgSky") : UIColor(named: "active")
+            dateNumber.textColor = isTooday ? UIColor(named: "bg") : UIColor(named: "active")
         }
     }
 }
