@@ -57,6 +57,9 @@ extension OverviewController {
     override func configure() {
         super.configure()
         
+        // для того, чтобы спрятать верхнюю линию
+        navigationController?.navigationBar.isHidden = true
+        
         // регистрируем ячейку
         collectionView.register(TrainingCellView.self, forCellWithReuseIdentifier: TrainingCellView.reuseID)
         // регистрируем хедер через forSupplementaryViewOfKind
