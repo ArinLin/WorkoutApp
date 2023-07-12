@@ -93,6 +93,12 @@ extension OverviewController {
                                 .init(title: "Cardio Interval Workout",
                                       subtitle: "Treadmill • 60 minutes",
                                       isDone: false),
+                                .init(title: "Chest/Shoulders/Tricep Workout",
+                                      subtitle: "Overhead Extension • 3 sets • 6 reps",
+                                      isDone: false),
+                                .init(title: "Chest and Back Workout",
+                                      subtitle: "Chinup • 10 sets • 3 reps",
+                                      isDone: false),
                             ])
         ]
         // когда данные получены из интернета, нужно обновить, чтобы они показались

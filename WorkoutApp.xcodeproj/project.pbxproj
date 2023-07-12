@@ -155,6 +155,7 @@
 		844B71082A37ACC300D31E38 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
+				849687602A5DE7FA005BF4DE /* Views */,
 				844B710C2A37ACF900D31E38 /* SettingsController.swift */,
 			);
 			path = Settings;
@@ -278,6 +279,21 @@
 				8496875E2A5D69FD005BF4DE /* TrainingCellView.swift */,
 			);
 			path = Collection;
+			sourceTree = "<group>";
+		};
+		849687602A5DE7FA005BF4DE /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				849687612A5DE802005BF4DE /* Collections */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		849687612A5DE802005BF4DE /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Collections;
 			sourceTree = "<group>";
 		};
 		84A511E12A4AE73A00F1EE8B /* Views */ = {
